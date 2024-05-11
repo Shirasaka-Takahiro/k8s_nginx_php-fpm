@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quick-infra-net
+spec:
+  selector:
+    matchLabels:
+      app: quick-infra-net
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: quick-infra-net
+    spec:
+      containers:
+      - name: nginx
+        image: quick-infra-k8s-nginx:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+      - name: php-fpm
+        image: quick-infra-k8s-php-fpm:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9000
