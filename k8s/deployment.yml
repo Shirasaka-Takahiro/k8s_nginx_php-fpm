@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: quick-infra-net
+  namespace: quick-infra-net
 spec:
   selector:
     matchLabels:
